@@ -493,6 +493,7 @@
       <nav aria-label="Support navigation">
         <a href="#start">Get started</a>
         <a href="#troubleshooting">Troubleshooting</a>
+        <a href="#piper-server">Self-host Piper</a>
         <a href="#privacy">Privacy</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -647,6 +648,33 @@
       </div>
     </section>
 
+    <section id="piper-server" aria-labelledby="piper-server-title">
+      <p class="eyebrow">For advanced users</p>
+      <h2 id="piper-server-title">Run your own Piper server</h2>
+      <p class="section-intro">Piper is optional. It is for people who control a compatible speech server and want PageVoice to generate audio through it. It is not required for Apple speech, article reading or Apple Intelligence features.</p>
+      <div class="support-grid">
+        <article class="info-card">
+          <h3>1. Install the speech engine</h3>
+          <p>Start with the upstream <a href="https://github.com/OHF-Voice/piper1-gpl">Piper installation guide</a>, then use its <a href="https://github.com/OHF-Voice/piper1-gpl/blob/main/docs/API_HTTP.md">HTTP-server guide</a> for a local synthesis test.</p>
+        </article>
+        <article class="info-card">
+          <h3>2. Choose voices carefully</h3>
+          <p>Use the official <a href="https://github.com/OHF-Voice/piper1-gpl/blob/main/docs/VOICES.md">Piper voices guide</a>, listen to the <a href="https://rhasspy.github.io/piper-samples/">voice samples</a>, then find model cards in the <a href="https://huggingface.co/rhasspy/piper-voices">voice catalogue</a>. Review each model’s licence before use or redistribution.</p>
+        </article>
+        <article class="info-card">
+          <h3>3. Add a secure PageVoice adapter</h3>
+          <p>PageVoice needs a compatible HTTPS service in front of Piper. It uses authenticated versioned API routes, bounded text requests, cancellation and WAV audio; the upstream Piper web service alone is not a drop-in PageVoice endpoint.</p>
+        </article>
+        <article class="info-card">
+          <h3>4. Configure PageVoice</h3>
+          <p>In <strong>Piper server settings</strong>, enter only your HTTPS server origin, save or import its access token, then use <strong>Check connection</strong>. Never share a token in a URL, screenshot, email or support request.</p>
+        </article>
+      </div>
+      <div class="notice" role="note">
+        <p><strong>Self-hosting is a security and privacy responsibility.</strong> The stock Piper HTTP server is useful for local testing, but is not a drop-in PageVoice endpoint and should never be exposed publicly without TLS and authentication. Use a compatible HTTPS bridge with bearer-token authentication, request limits and a short bounded queue. Decide what, if anything, your server logs or retains and reflect that accurately in your privacy policy. Piper does not currently give PageVoice accurate source-word timings, so the app keeps paragraph tracking for Piper and word highlighting for Apple speech.</p>
+      </div>
+    </section>
+
     <section id="privacy" aria-labelledby="privacy-title">
       <p class="eyebrow">Privacy at a glance</p>
       <h2 id="privacy-title">Where your reading goes</h2>
@@ -681,12 +709,35 @@
         <a class="button" href="mailto:tony-dev86@outlook.com?subject=PageVoice%20support">Email support</a>
       </div>
     </section>
+
+    <section id="notices" aria-labelledby="notices-title">
+      <p class="eyebrow">Legal notices</p>
+      <h2 id="notices-title">Copyright and acknowledgements</h2>
+      <div class="privacy-grid">
+        <article class="info-card">
+          <h3>PageVoice</h3>
+          <p>© 2026 Tony Ashton. All rights reserved.</p>
+        </article>
+        <article class="info-card">
+          <h3>Mozilla Readability</h3>
+          <p>PageVoice includes unmodified Mozilla Readability 0.6.0. Copyright © 2010 Arc90 Inc. Licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>. See the <a href="https://github.com/mozilla/readability/tree/0.6.0">upstream source</a> and the licence included with the app.</p>
+        </article>
+        <article class="info-card">
+          <h3>Piper</h3>
+          <p>Piper is a third-party open-source project, licensed under <a href="https://github.com/OHF-Voice/piper1-gpl/blob/main/COPYING">GPL-3.0</a>, and is not affiliated with or endorsed by PageVoice. Self-hosting operators must review the separate licence for each voice model.</p>
+        </article>
+        <article class="info-card">
+          <h3>Apple trademarks</h3>
+          <p>Apple, iPhone, iPad, iPadOS and Apple Intelligence are trademarks of Apple Inc., registered in the U.S. and other countries and regions. PageVoice is not affiliated with Apple Inc.</p>
+        </article>
+      </div>
+    </section>
   </main>
 
   <footer>
     <div class="footer-inner">
-      <p><strong>PageVoice 1.0</strong> · Support for iOS and iPadOS 26+</p>
-      <p><a href="#top">Back to top</a></p>
+      <p><strong>PageVoice 1.0</strong> · © 2026 Tony Ashton · Support for iOS and iPadOS 26+</p>
+      <p><a href="#notices">Legal notices</a> · <a href="#top">Back to top</a></p>
     </div>
   </footer>
 </body>
