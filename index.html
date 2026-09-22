@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Help, troubleshooting and privacy information for PageVoice, the iPhone and iPad app that turns readable web articles into listening time.">
+  <meta name="theme-color" content="#f7f5ef" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#181b19" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PageVoice Support">
+  <meta property="og:description" content="Get started, solve common problems and understand how PageVoice handles your reading data.">
+  <title>PageVoice Support</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --paper: #f7f5ef;
+      --card: #ffffff;
+      --ink: #233a32;
+      --muted: #67736b;
+      --accent: #b94c31;
+      --accent-ink: #8e301d;
+      --highlight: #f1e5d7;
+      --forest: #213b30;
+      --line: rgba(35, 58, 50, 0.14);
+      --shadow: 0 18px 55px rgba(35, 58, 50, 0.09);
+      --radius-large: 28px;
+      --radius-medium: 20px;
+      --page-width: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 7rem;
+    }
+
+    body {
+      margin: 0;
+      min-width: 280px;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 17px;
+      line-height: 1.62;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: var(--accent-ink);
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.18em;
+    }
+
+    a:hover { text-decoration-thickness: 0.14em; }
+
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 4px;
+      border-radius: 6px;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      top: 12px;
+      left: 12px;
+      padding: 10px 14px;
+      transform: translateY(-180%);
+      border-radius: 10px;
+      background: var(--ink);
+      color: var(--paper);
+      font-weight: 700;
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .site-header {
+      position: sticky;
+      z-index: 20;
+      top: 0;
+      border-bottom: 1px solid var(--line);
+      background: var(--paper);
+      background: color-mix(in srgb, var(--paper) 90%, transparent);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .header-inner,
+    main,
+    .footer-inner {
+      width: min(calc(100% - 40px), var(--page-width));
+      margin-inline: auto;
+    }
+
+    .header-inner {
+      display: flex;
+      min-height: 72px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--ink);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: inline-flex;
+      width: 38px;
+      height: 38px;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      border-radius: 12px;
+      background: var(--accent);
+      box-shadow: 0 7px 18px rgba(185, 76, 49, 0.22);
+    }
+
+    .brand-mark span {
+      width: 3px;
+      border-radius: 999px;
+      background: #fff;
+    }
+
+    .brand-mark span:nth-child(1),
+    .brand-mark span:nth-child(5) { height: 10px; }
+    .brand-mark span:nth-child(2),
+    .brand-mark span:nth-child(4) { height: 20px; }
+    .brand-mark span:nth-child(3) { height: 28px; }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 0.92rem;
+      font-weight: 650;
+    }
+
+    nav a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    main { padding-block: 68px 88px; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+      align-items: center;
+      gap: clamp(36px, 7vw, 96px);
+      padding-bottom: 82px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--accent-ink);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin-top: 0;
+      color: var(--ink);
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", serif;
+      line-height: 1.08;
+    }
+
+    h1 {
+      max-width: 720px;
+      margin-bottom: 24px;
+      font-size: clamp(3.25rem, 8vw, 6.2rem);
+      font-weight: 500;
+      letter-spacing: -0.045em;
+    }
+
+    h2 {
+      margin-bottom: 16px;
+      font-size: clamp(2.15rem, 5vw, 3.5rem);
+      font-weight: 550;
+      letter-spacing: -0.025em;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: 1.35rem;
+      font-weight: 650;
+    }
+
+    .lede {
+      max-width: 670px;
+      margin: 0 0 30px;
+      color: var(--muted);
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 18px;
+      border: 2px solid var(--accent);
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--accent-ink);
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      padding: 32px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-large);
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card::before {
+      position: absolute;
+      inset: 0 0 auto;
+      height: 8px;
+      background: var(--accent);
+      content: "";
+    }
+
+    .hero-card p { margin: 0; }
+    .hero-card .status { color: var(--muted); }
+    .hero-card strong { color: var(--ink); }
+
+    .waveform {
+      display: flex;
+      height: 76px;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 26px;
+      color: var(--accent);
+    }
+
+    .waveform span {
+      width: 6px;
+      border-radius: 999px;
+      background: currentColor;
+    }
+
+    .waveform span:nth-child(1), .waveform span:nth-child(11) { height: 18px; }
+    .waveform span:nth-child(2), .waveform span:nth-child(10) { height: 31px; }
+    .waveform span:nth-child(3), .waveform span:nth-child(9) { height: 46px; }
+    .waveform span:nth-child(4), .waveform span:nth-child(8) { height: 27px; }
+    .waveform span:nth-child(5), .waveform span:nth-child(7) { height: 61px; }
+    .waveform span:nth-child(6) { height: 74px; }
+
+    section { margin-top: 92px; }
+
+    .section-intro {
+      max-width: 720px;
+      margin: 0 0 34px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .steps,
+    .support-grid,
+    .privacy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .step,
+    .info-card {
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-medium);
+      background: var(--card);
+    }
+
+    .step-number {
+      display: inline-grid;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 34px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--highlight);
+      color: var(--accent-ink);
+      font-weight: 850;
+    }
+
+    .step p,
+    .info-card p { margin: 0; color: var(--muted); }
+
+    .notice {
+      margin-top: 26px;
+      padding: 20px 22px;
+      border-left: 5px solid var(--accent);
+      border-radius: 4px var(--radius-medium) var(--radius-medium) 4px;
+      background: var(--highlight);
+    }
+
+    .notice p { margin: 0; }
+
+    .faq-list {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-large);
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    details { border-bottom: 1px solid var(--line); }
+    details:last-child { border-bottom: 0; }
+
+    summary {
+      position: relative;
+      min-height: 66px;
+      padding: 21px 62px 21px 24px;
+      cursor: pointer;
+      color: var(--ink);
+      font-weight: 750;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      position: absolute;
+      top: 50%;
+      right: 25px;
+      color: var(--accent);
+      content: "+";
+      font-size: 1.7rem;
+      font-weight: 400;
+      line-height: 1;
+      transform: translateY(-53%);
+    }
+
+    details[open] summary::after { content: "−"; }
+
+    .answer {
+      max-width: 850px;
+      padding: 0 62px 24px 24px;
+      color: var(--muted);
+    }
+
+    .answer p:first-child { margin-top: 0; }
+    .answer p:last-child,
+    .answer ul:last-child { margin-bottom: 0; }
+    .answer li + li { margin-top: 8px; }
+
+    .support-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .privacy-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .contact-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 28px;
+      padding: clamp(28px, 6vw, 56px);
+      border-radius: var(--radius-large);
+      background: var(--forest);
+      color: #f7f5ef;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card h2,
+    .contact-card p { color: inherit; }
+    .contact-card h2 { margin-bottom: 12px; }
+    .contact-card p { max-width: 680px; margin: 0; color: #dfe7e2; }
+    .contact-card .button { border-color: #f7f5ef; background: #f7f5ef; color: #233a32; }
+
+    footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      min-height: 112px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 0.9rem;
+    }
+
+    .footer-inner p { margin: 0; }
+
+    @media (max-width: 820px) {
+      nav a:not(:last-child) { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-card { max-width: 560px; }
+      .steps { grid-template-columns: 1fr; }
+      .support-grid,
+      .privacy-grid { grid-template-columns: 1fr; }
+      .step-number { margin-bottom: 18px; }
+      .contact-card { grid-template-columns: 1fr; }
+      .contact-card .button { justify-self: start; }
+    }
+
+    @media (max-width: 520px) {
+      .header-inner,
+      main,
+      .footer-inner { width: min(calc(100% - 28px), var(--page-width)); }
+      .header-inner { min-height: 64px; }
+      main { padding-top: 44px; }
+      .hero { padding-bottom: 46px; }
+      section { margin-top: 68px; }
+      h1 { font-size: clamp(2.8rem, 15vw, 4.2rem); }
+      .hero-card,
+      .step,
+      .info-card { padding: 22px; }
+      .button-row { align-items: stretch; flex-direction: column; }
+      .button { width: 100%; }
+      summary { padding-left: 20px; }
+      .answer { padding-right: 24px; padding-left: 20px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; justify-content: center; }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #181b19;
+        --card: #242925;
+        --ink: #f1f0e9;
+        --muted: #afbbb2;
+        --accent: #f29575;
+        --accent-ink: #f6a98e;
+        --highlight: #3d382e;
+        --forest: #253d33;
+        --line: rgba(241, 240, 233, 0.14);
+        --shadow: 0 18px 55px rgba(0, 0, 0, 0.2);
+      }
+
+      .brand-mark { background: #b94c31; }
+      .button { border-color: #b94c31; background: #b94c31; }
+      .button.secondary { border-color: var(--accent); background: transparent; color: var(--accent); }
+      .contact-card { color: #f7f5ef; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: 0.01ms !important; }
+    }
+
+    @media print {
+      .site-header,
+      .button-row,
+      .contact-card .button { display: none; }
+      body { background: #fff; color: #000; }
+      main { padding: 24px 0; }
+      .hero { display: block; padding-bottom: 24px; }
+      .hero-card { margin-top: 24px; box-shadow: none; }
+      section { margin-top: 40px; }
+      details { break-inside: avoid; }
+      details > .answer { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to support content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="PageVoice Support home">
+        <span class="brand-mark" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+        </span>
+        <span>PageVoice Support</span>
+      </a>
+      <nav aria-label="Support navigation">
+        <a href="#start">Get started</a>
+        <a href="#troubleshooting">Troubleshooting</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="hero" id="top">
+      <div>
+        <p class="eyebrow">PageVoice help centre</p>
+        <h1>Good words.<br>Better heard.</h1>
+        <p class="lede">Find answers about preparing web articles, choosing voices, moving between chapters and listening when you are away from a connection.</p>
+        <div class="button-row">
+          <a class="button" href="#troubleshooting">Solve a problem</a>
+          <a class="button secondary" href="#start">Start listening</a>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="PageVoice compatibility">
+        <div class="waveform" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <h2>Less screen.<br>More story.</h2>
+        <p><strong>PageVoice 1.0</strong></p>
+        <p class="status">Designed for iPhone and iPad running iOS or iPadOS 26 or later.</p>
+      </aside>
+    </div>
+
+    <section id="start" aria-labelledby="start-title">
+      <p class="eyebrow">Quick start</p>
+      <h2 id="start-title">Listen in three steps</h2>
+      <p class="section-intro">PageVoice works with readable article pages available through an ordinary HTTP or HTTPS link.</p>
+      <div class="steps">
+        <article class="step">
+          <span class="step-number" aria-hidden="true">1</span>
+          <h3>Paste a link</h3>
+          <p>Copy a public article URL, paste it into PageVoice and choose <strong>Prepare article</strong>.</p>
+        </article>
+        <article class="step">
+          <span class="step-number" aria-hidden="true">2</span>
+          <h3>Choose your sound</h3>
+          <p>Select Apple speech, an installed voice and a listening pace. Piper is an optional advanced server preview.</p>
+        </article>
+        <article class="step">
+          <span class="step-number" aria-hidden="true">3</span>
+          <h3>Press Play</h3>
+          <p>Follow the text, move by paragraph and use background or lock-screen playback controls.</p>
+        </article>
+      </div>
+      <div class="notice" role="note">
+        <p><strong>Original preserves the extracted wording.</strong> AI rewrite deliberately prepares different wording for listening and can make mistakes. Compare important details with the source.</p>
+      </div>
+    </section>
+
+    <section id="troubleshooting" aria-labelledby="troubleshooting-title">
+      <p class="eyebrow">Troubleshooting</p>
+      <h2 id="troubleshooting-title">Common questions</h2>
+      <p class="section-intro">Open a question below for the shortest route back to listening.</p>
+
+      <div class="faq-list">
+        <details>
+          <summary>PageVoice cannot find a readable article</summary>
+          <div class="answer">
+            <p>Check that the link opens and that your device has a connection. PageVoice reads public HTML article pages; it does not bypass paywalls, sign-ins or website restrictions.</p>
+            <p>Choose <strong>Browse website in app</strong>, navigate using the website’s own controls, then tap <strong>Read this page</strong>. Some highly interactive pages, infinite feeds, PDFs and video-only pages may not provide readable article text.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>The next page or chapter is not detected</summary>
+          <div class="answer">
+            <p>PageVoice intentionally follows only a confident, same-website next-page link. Ambiguous links, recommendations, backwards links and JavaScript-only buttons are rejected to avoid opening the wrong page.</p>
+            <p>Use <strong>Browse website in app</strong>, tap the site’s own Next control, then choose <strong>Read this page</strong>. Auto-next is off again each time you launch the app.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>I want a more natural Apple voice</summary>
+          <div class="answer">
+            <p>On your device, open <strong>Settings → Accessibility → Read &amp; Speak → Voices</strong> and download an enhanced or premium voice where available. Return to PageVoice, reopen the voice picker and use Preview before selecting it.</p>
+            <p>Available voices vary by language, region and operating-system version. Siri’s private voice models are not available to PageVoice.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Apple Intelligence features are unavailable or an AI rewrite failed</summary>
+          <div class="answer">
+            <p>Summaries and AI rewrite require a supported device, language and region with Apple Intelligence enabled and ready. Original reading and Apple speech still work without those features.</p>
+            <p>A rewrite is rejected if PageVoice detects missing content, major length changes, changed numbers or changed quotations. Retry it, or choose <strong>Original</strong> to hear the extracted article without an AI rewrite.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Piper will not connect or starts slowly</summary>
+          <div class="answer">
+            <p>Piper is optional and requires access to a compatible authenticated HTTPS server. In Piper server settings, enter the server origin, import or save its access token, then use <strong>Check connection</strong>. After restarting your device, unlock it once before locked-screen Piper playback.</p>
+            <p>A server model change or weak connection can delay the first passage. Piper tracks paragraphs, not individual words. Changing voice cancels the old generation and restarts the current paragraph; changing it while paused stays paused.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>An offline chapter is incomplete</summary>
+          <div class="answer">
+            <p>Offline chapter preparation is available when Piper is configured. Keep PageVoice open until every chapter you need says <strong>Ready offline</strong>. Wi-Fi is the default; preparation can be allowed over mobile data, while Low Data Mode pauses it.</p>
+            <p>Changing server, voice or reading style creates different audio. Incomplete chapters can play the audio already prepared, but missing passages still need a connection. PageVoice never silently deletes ready downloads to make space; preparation stops at its storage limit.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Playback stopped while the screen was locked</summary>
+          <div class="answer">
+            <p>Apple speech and already prepared audio can continue in the background. Piper may pause if it runs out of prepared audio, the network fails or iOS ends background work. Open PageVoice, review the message and press Play to retry.</p>
+            <p>Calls, Siri, route changes and headphone disconnection can interrupt playback. PageVoice does not resume unexpectedly after an interruption; press Play when you are ready.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>How do I remove saved pages, downloads or a Piper token?</summary>
+          <div class="answer">
+            <ul>
+              <li>Remove one saved page from its website folder, delete a complete folder, or use <strong>Clear listening shelf</strong>.</li>
+              <li>Open <strong>Offline listening</strong> to clear downloaded Piper chapters separately.</li>
+              <li>Use <strong>Forget token</strong> in Piper server settings to remove that server origin’s token from this device.</li>
+              <li>If you imported a plaintext token file, delete that file from Files and Recently Deleted after it has been saved to Keychain.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section aria-labelledby="features-title">
+      <p class="eyebrow">Useful to know</p>
+      <h2 id="features-title">Reading, voices and travel</h2>
+      <div class="support-grid">
+        <article class="info-card">
+          <h3>Apple speech</h3>
+          <p>Runs on your device, supports installed iOS voices, highlights the current word and offers playback from 0.75× to 1.5×.</p>
+        </article>
+        <article class="info-card">
+          <h3>Optional Piper preview</h3>
+          <p>Uses the voice catalog supplied by your configured authenticated server. Narration is remote, with paragraph tracking and no accurate word highlighting.</p>
+        </article>
+        <article class="info-card">
+          <h3>Long reads</h3>
+          <p>Move manually or use Auto-next where a reliable next-page or next-chapter link is available. The in-app website is the manual fallback.</p>
+        </article>
+        <article class="info-card">
+          <h3>Your listening shelf</h3>
+          <p>Saved pages are grouped by website and remember your paragraph. Delete one page, a whole website folder or the complete shelf whenever you choose.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="privacy" aria-labelledby="privacy-title">
+      <p class="eyebrow">Privacy at a glance</p>
+      <h2 id="privacy-title">Where your reading goes</h2>
+      <p class="section-intro">These points explain normal app behaviour. They are not a replacement for the separate privacy policy supplied with the public App Store listing.</p>
+      <div class="privacy-grid">
+        <article class="info-card">
+          <h3>On your device</h3>
+          <p>Apple speech and Apple Intelligence processing run on your device. Shelf text, bookmarks and settings are stored locally. PageVoice does not require an app account.</p>
+        </article>
+        <article class="info-card">
+          <h3>Websites you open</h3>
+          <p>Preparing a link contacts that website. PageVoice uses a temporary in-app web session rather than sharing your Safari sign-ins, and it does not bypass a site’s access controls.</p>
+        </article>
+        <article class="info-card">
+          <h3>When you choose Piper</h3>
+          <p>Readable narration text is sent over authenticated HTTPS to the server you configured. PageVoice does not send that server the website’s HTML, and the token is kept in the iPhone Keychain.</p>
+        </article>
+        <article class="info-card">
+          <h3>This support page</h3>
+          <p>This page contains no analytics, advertising, cookies, external fonts or third-party scripts.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="contact-card">
+        <div>
+          <p class="eyebrow">Still need help?</p>
+          <h2 id="contact-title">Contact PageVoice support</h2>
+          <p>Include your device model, iOS or iPadOS version, PageVoice version and a short description of what happened. Never send a Piper token or private article text.</p>
+        </div>
+        <a class="button" href="mailto:tony-dev86@outlook.com?subject=PageVoice%20support">Email support</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p><strong>PageVoice 1.0</strong> · Support for iOS and iPadOS 26+</p>
+      <p><a href="#top">Back to top</a></p>
+    </div>
+  </footer>
+</body>
+</html>
